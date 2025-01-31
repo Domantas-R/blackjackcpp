@@ -29,7 +29,7 @@ void Game::playRound() {
 
     while (player->decideHitOrStand()) {
         player->addCard(deck.drawCard());
-        if (player->calculateHandValue() > 21) {
+        if (player->calculateHandValue() > BLACKJACK) {
             renderer.render(dealer, player, 1);
             return;
         }
@@ -47,10 +47,10 @@ void Game::determineWinner() {
     int playerValue = player->calculateHandValue();
     int dealerValue = dealer->calculateHandValue();
 
-    if (playerValue > 21) {
+    if (playerValue > BLACKJACK) {
         renderer.render(dealer, player, 1, false);
     }
-    else if (dealerValue > 21) {
+    else if (dealerValue > BLACKJACK) {
         renderer.render(dealer, player, 2, false);
     }
     else if (playerValue > dealerValue) {

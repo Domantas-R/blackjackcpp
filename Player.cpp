@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Game.h"
 
 void Player::addCard(int card) { hand.push_back(card); }
 
@@ -18,7 +19,7 @@ int Player::calculateHandValue() const {
             value += card;
         }
     }
-    while (value > 21 && numAces > 0) {
+    while (value > BLACKJACK && numAces > 0) {
         value -= 10;
         numAces--;
     }

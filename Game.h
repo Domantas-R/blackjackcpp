@@ -7,6 +7,9 @@
 #include "HumanPlayer.h"
 #include "Renderer.h"
 
+const int BLACKJACK = 21;
+const int DEALER_STAND_SCORE = 17;
+
 class Game {
 private:
     Deck deck;
