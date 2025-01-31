@@ -1,0 +1,21 @@
+TEST(DeckTest, Initialization) {
+    Deck deck;
+    deck.initialize(2);
+    EXPECT_EQ(deck.size(), 52); // 52 cards
+}
+
+TEST(PlayerTest, HandValueWithAces) {
+    Player player;
+    player.addCard(1); // Ace
+    player.addCard(10); // King
+    EXPECT_EQ(player.calculateHandValue(), 21);
+}
+
+TEST(GameTest, DetermineWinner) {
+    Game game;
+    game.getPlayer().addCard(10);
+    game.getPlayer().addCard(9); // 19
+    game.getDealer().addCard(10);
+    game.getDealer().addCard(7); // 17
+    EXPECT_EQ(game.determineWinner(), PLAYER_WINS);
+}
