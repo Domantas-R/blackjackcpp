@@ -2,10 +2,10 @@
 
 bool Strategy::ConservativeStrategy(int score)
 {
-	return false;
+	return score < 17;
 }
 
 bool Strategy::AggressiveStrategy(int score)
 {
-	return false;
+	return score < 20;
 }
