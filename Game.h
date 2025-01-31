@@ -9,8 +9,8 @@
 class Game {
 private:
     Deck deck;
-    Player dealer;
-    Player player;
+    Dealer dealer;
+    HumanPlayer player;
     Renderer renderer;
 
 public:
