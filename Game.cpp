@@ -26,7 +26,7 @@ void Game::playRound() {
         renderer.render(dealer, player, 0);
     }
 
-    while (dealer.shouldDrawCard()) {
+    while (dealer.decideHitOrStand()) {
         dealer.addCard(deck.drawCard());
     }
 

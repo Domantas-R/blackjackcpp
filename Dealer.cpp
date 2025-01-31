@@ -1,5 +1,5 @@
 #include "Dealer.h"
 
-bool Dealer::shouldDrawCard() const {
+bool Dealer::decideHitOrStand() {
     return calculateHandValue() < 17;
 }

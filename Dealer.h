@@ -5,7 +5,7 @@
 
 class Dealer : public Player {
 public:
-    bool shouldDrawCard() const;
+    bool decideHitOrStand() override;
 };
 
 #endif

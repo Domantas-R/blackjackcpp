@@ -11,6 +11,7 @@ protected:
 public:
     virtual ~Player() = default;
     void addCard(int card);
+    virtual bool decideHitOrStand();
     int calculateHandValue() const;
     vector<int> getHand() const;
     void clearHand();

@@ -2,6 +2,11 @@
 
 void Player::addCard(int card) { hand.push_back(card); }
 
+bool Player::decideHitOrStand()
+{
+    return false;
+}
+
 int Player::calculateHandValue() const {
     int value = 0, numAces = 0;
     for (int card : hand) {
