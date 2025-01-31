@@ -5,7 +5,7 @@
 
 class Renderer {
 public:
-    void render(const Player& dealer, const Player& player, int state, bool hideDealerCard = true);
+    void render(Player* dealer, Player* player, int state, bool hideDealerCard = true);
 };
 
 #endif

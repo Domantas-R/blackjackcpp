@@ -2,40 +2,50 @@
 #include <iostream>
 using namespace std;
 
+Game::Game() {
+    player = new HumanPlayer();
+    dealer = new Dealer();
+}
+
+Game::~Game() {
+    delete player;
+    delete dealer;
+}
+
 void Game::playRound() {
     deck.initialize();
     deck.shuffleCards();
 
-    dealer.clearHand();
-    player.clearHand();
+    dealer->clearHand();
+    player->clearHand();
 
-    dealer.addCard(deck.drawCard());
-    dealer.addCard(deck.drawCard());
+    dealer->addCard(deck.drawCard());
+    dealer->addCard(deck.drawCard());
 
-    player.addCard(deck.drawCard());
-    player.addCard(deck.drawCard());
+    player->addCard(deck.drawCard());
+    player->addCard(deck.drawCard());
 
     renderer.render(dealer, player, 0);
 
-    while (player.decideHitOrStand()) {
-        player.addCard(deck.drawCard());
-        if (player.calculateHandValue() > 21) {
+    while (player->decideHitOrStand()) {
+        player->addCard(deck.drawCard());
+        if (player->calculateHandValue() > 21) {
             renderer.render(dealer, player, 1);
             return;
         }
         renderer.render(dealer, player, 0);
     }
 
-    while (dealer.decideHitOrStand()) {
-        dealer.addCard(deck.drawCard());
+    while (dealer->decideHitOrStand()) {
+        dealer->addCard(deck.drawCard());
     }
 
     determineWinner();
 }
 
 void Game::determineWinner() {
-    int playerValue = player.calculateHandValue();
-    int dealerValue = dealer.calculateHandValue();
+    int playerValue = player->calculateHandValue();
+    int dealerValue = dealer->calculateHandValue();
 
     if (playerValue > 21) {
         renderer.render(dealer, player, 1, false);

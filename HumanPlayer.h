@@ -5,7 +5,7 @@
 
 class HumanPlayer : public Player {
 public:
-    bool decideHitOrStand();
+    bool decideHitOrStand() override;
 };
 
 #endif
